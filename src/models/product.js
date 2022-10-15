@@ -29,11 +29,6 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       discount: false
-    },
-    category: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: false
     }
   },
   {

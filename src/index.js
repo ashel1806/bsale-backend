@@ -8,7 +8,7 @@ const { productsRouter } = require("./controllers");
 
 app.use(express.json())
 
-app.use('/api/notes', productsRouter)
+app.use('/api/products', productsRouter)
 
 const start = async () => {
   await connectToDatabase()
