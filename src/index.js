@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 const { PORT } = require('./util/config');
@@ -6,7 +7,7 @@ const { connectToDatabase } = require('./util/db');
 
 const { productsRouter, categoryRouter } = require('./controllers');
 
-app.use(express.json());
+app.use(cors());
 
 app.use('/api/products', productsRouter);
 app.use('/api/category', categoryRouter);
