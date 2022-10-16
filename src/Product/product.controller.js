@@ -15,7 +15,6 @@ class ProductsController {
     }
 
     let productsPerPage = limit ?? PRODUCTS_PER_PAGE;
-    console.log(limit)
 
     const response = await ProductsDAO.getProducts({
       filter,

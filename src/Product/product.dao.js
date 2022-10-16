@@ -5,6 +5,14 @@ const { Product, Category } = require('../models');
 const { getPagination, getPagingData } = require('../util/pagination');
 
 class ProductsDAO {
+  /**
+   *
+   * @param {object} filter The search parameters to use in the query.
+   * @param {number} page The page of products to retrieve.
+   * @param {number} productsPerPage The number of products to display per page.
+   *
+   * @returns {GetProductsResult} An object with product results and pagination data.
+   */
   static async getProducts({
     filter = {},
     page = 0,
@@ -40,43 +48,27 @@ class ProductsDAO {
 
 module.exports = ProductsDAO;
 
-// router.get('/', async (req, res) => {
-//   try {
-//     const where = {};
+/**
+ * A category.
+ * @typedef {Object} Category
+ * @property {string} name The name of the category.
+ */
 
-//     if (req.query.search) {
-//       where.name = {
-//         [Op.substring]: req.query.search,
-//       };
-//     }
+/**
+ * A product from Database.
+ * @typedef {Object} Product
+ * @property {string} name
+ * @property {string} url_image
+ * @property {number} price
+ * @property {number} discount
+ * @property {Category} type
+ */
 
-//     const products = await Product.findAll({
-//       attributes: { exclude: ['id', 'category'] },
-//       include: {
-//         model: Category,
-//         as: 'type',
-//         attributes: ['name'],
-//         where: {
-//           name: req.query.category ? req.query.category : { [Op.ne]: null },
-//         },
-//       },
-//       where,
-//     });
-
-//     if (!products.length) {
-//       throw new Error('Ningún producto encontrado');
-//     }
-
-//     return res.json({
-//       status: 'success',
-//       data: products,
-//     });
-//   } catch (error) {
-//     return res.status(404).json({
-//       status: 'error',
-//       message: error.message,
-//     });
-//   }
-// });
-
-// module.exports = router;
+/**
+ * Result set for getProducts method.
+ * @typedef {object} GetProductsResult
+ * @property {number} totalItems Total number of products.
+ * @property {Product[]} products Array of products.
+ * @property {number} totalPages Total number of pages.
+ * @property {number} currentPage Current page.
+ */
