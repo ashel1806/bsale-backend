@@ -5,12 +5,11 @@ const app = express();
 const { PORT } = require('./util/config');
 const { connectToDatabase } = require('./util/db');
 
-const { productsRouter, categoryRouter } = require('./controllers');
+const { ProductsRoute } = require('./Product');
 
 app.use(cors());
 
-app.use('/api/products', productsRouter);
-app.use('/api/category', categoryRouter);
+app.use('/api/products', ProductsRoute);
 
 const start = async () => {
   await connectToDatabase();
