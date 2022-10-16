@@ -1,10 +1,10 @@
-const router = require("express").Router();
-const { Op } = require("sequelize");
+const router = require('express').Router();
+const { Op } = require('sequelize');
 
-const { Product } = require("../models");
-const { Category } = require("../models");
+const { Product } = require('../models');
+const { Category } = require('../models');
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   const where = {};
 
   if (req.query.name) {
@@ -14,11 +14,11 @@ router.get("/", async (req, res) => {
   }
 
   const productsByCategory = await Category.findAll({
-    attributes: { exclude: ["id"] },
+    attributes: { exclude: ['id'] },
     include: {
       model: Product,
-      as: "products",
-      attributes: { exclude: ["id", "category"] },
+      as: 'products',
+      attributes: { exclude: ['id', 'category'] },
     },
     where,
   });

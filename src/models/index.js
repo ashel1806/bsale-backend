@@ -1,10 +1,10 @@
-const Product = require('./product')
-const Category = require('./category')
+const Product = require('./product');
+const Category = require('./category');
 
-Category.hasMany(Product, { foreignKey: 'category' }) 
-Product.belongsTo(Category, { foreignKey: 'category', as: 'type' })
+Category.hasMany(Product, { foreignKey: 'category' });
+Product.belongsTo(Category, { foreignKey: 'category', as: 'type' });
 
 module.exports = {
   Product,
-  Category
-} 
+  Category,
+};

@@ -3,5 +3,5 @@ const categoryRouter = require('./category');
 
 module.exports = {
   productsRouter,
-  categoryRouter
+  categoryRouter,
 };

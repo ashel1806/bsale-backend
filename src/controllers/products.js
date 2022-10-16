@@ -1,11 +1,9 @@
-const router = require("express").Router();
-const { Op } = require("sequelize");
+const router = require('express').Router();
+const { Op } = require('sequelize');
 
-const {
-  Product
-} = require("../models");
+const { Product } = require('../models');
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   const where = {};
 
   if (req.query.search) {
@@ -15,7 +13,7 @@ router.get("/", async (req, res) => {
   }
 
   const products = await Product.findAll({
-    attributes: { exclude: ["id", "category"] },
+    attributes: { exclude: ['id', 'category'] },
     where,
   });
 
