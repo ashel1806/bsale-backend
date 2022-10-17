@@ -285,3 +285,39 @@ GET /api/products?search=pampero&category=ron&limit=1
   "currentPage": 0
 }
 ```
+
+### Categorias
+
+```http
+GET /api/categories
+```
+
+##### Response
+
+La respuesta en un array con los nombres de todas las categorías
+
+```json
+[
+  {
+    "name": "bebida energetica"
+  },
+  {
+    "name": "pisco"
+  },
+  {
+    "name": "ron"
+  },
+  {
+    "name": "bebida"
+  },
+  {
+    "name": "snack"
+  },
+  {
+    "name": "cerveza"
+  },
+  {
+    "name": "vodka"
+  }
+]
+```
